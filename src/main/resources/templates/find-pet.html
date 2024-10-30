@@ -4,24 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>반려동물 찾기</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/find-pet.css">
 </head>
 <body>
 <header>
-  <h1>찾재냥</h1>
+  <h1>찾개냥</h1>
   <nav>
-    <a href="index.html">HOME</a>
+    <a href="home.html">HOME</a>
     <a href="login.html">LOGIN</a>
   </nav>
 </header>
 <main>
   <h2>반려동물 찾기 게시판</h2>
   <div class="search-bar">
-    <label for="date-range">날짜 범위:</label>
-    <input type="text" id="date-range" placeholder="2020. 5. 20 - 2020. 6. 23">
+    <label for="start-date">시작 날짜:</label>
+    <input type="date" id="start-date" required>
+    <label for="end-date">종료 날짜:</label>
+    <input type="date" id="end-date" required>
     <button>검색</button>
   </div>
+  <div class="write-post">
+    <button onclick="window.location.href='write1.html';">글쓰기</button>
+
+  </div>
   <div class="pet-gallery">
+    <!-- 이 부분은 서버에서 받아온 데이터로 동적으로 채워질 것입니다 -->
     <div class="pet-item">
       <img src="pet1.jpg" alt="반려동물 1">
       <p>2024-10-12<br>부산광역시 서천시장<br>35</p>
@@ -48,14 +55,35 @@
     </div>
   </div>
   <div class="pagination">
-    <button>&lt;&lt;</button>
-    <span>1</span>
-    <button>2</button>
-    <button>&gt;&gt;</button>
+    <button id="first-page">맨앞</button>
+    <button id="prev-page">이전</button>
+    <span>1</span> <!-- 현재 페이지 번호 -->
+    <button id="next-page">다음</button>
+    <button id="last-page">맨끝</button>
   </div>
 </main>
 <footer>
-  <p>© 2024 찾재냥. All rights reserved.</p>
+  <p>© 2024 찾개냥. All rights reserved.</p>
 </footer>
+
+<script>
+  document.getElementById('first-page').onclick = function() {
+    // 맨앞 페이지로 이동하는 로직
+    window.location.href = 'find-pet.html?page=1'; // 예시 URL
+  };
+  document.getElementById('prev-page').onclick = function() {
+    // 이전 페이지로 이동하는 로직
+    window.location.href = 'find-pet.html?page=previous'; // 예시 URL
+  };
+  document.getElementById('next-page').onclick = function() {
+    // 다음 페이지로 이동하는 로직
+    window.location.href = 'find-pet.html?page=next'; // 예시 URL
+  };
+  document.getElementById('last-page').onclick = function() {
+    // 맨끝 페이지로 이동하는 로직
+    window.location.href = 'find-pet.html?page=last'; // 예시 URL
+  };
+</script>
 </body>
 </html>
+
