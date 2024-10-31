@@ -11,19 +11,19 @@
   <h1>찾개냥</h1>
   <nav>
     <a href="home.html">HOME</a>
-    <a href="login.html">LOGIN</a>
+    <a href="logout.html">LOGOUT</a>
     <a href="mypage.html">MY PAGE</a>
   </nav>
 </header>
 <main>
-  <h2>반려동물을 찾아요</h2>
+  <h2>주인을 기다려요</h2>
   <form action="submit-pet-info.php" method="post" id="pet-info-form" enctype="multipart/form-data">
     <div class="form-group">
-      <label for="lostDate">잃어버린 날짜:</label>
+      <label for="lostDate">찾은 날짜:</label>
       <input type="date" id="lostDate" name="lostDate" required>
     </div>
     <div class="form-group">
-      <label for="look">잃어버린 장소:</label>
+      <label for="look">찾은 장소:</label>
       <input type="text" id="look" name="look" required>
     </div>
     <div class="form-group">
@@ -48,6 +48,16 @@
       <input type="text" id="kg" name="kg" required>
     </div>
     <div class="form-group">
+      <label for="size">크기:</label>
+      <select id="size" name="size" required>
+        <option value="">선택하세요</option>
+        <option value="소형">소형</option>
+        <option value="중형">중형</option>
+        <option value="대형">대형</option>
+        <option value="모호">모호</option>
+      </select>
+    </div>
+    <div class="form-group">
       <label for="color">색상:</label>
       <select id="color" name="color" required>
         <option value="">선택하세요</option>
@@ -61,16 +71,6 @@
         <option value="기타">기타</option>
       </select>
     </div>
-    <div class="form-group">
-      <label for="size">크기:</label>
-      <select id="size" name="size" required>
-        <option value="">선택하세요</option>
-        <option value="소형">소형</option>
-        <option value="중형">중형</option>
-        <option value="대형">대형</option>
-        <option value="모호">모호</option>
-      </select>
-    </div>
 
     <div class="description-container">
       <div class="form-group">
@@ -81,7 +81,7 @@
 
     <div class="form-buttons">
       <button type="reset">리셋</button>
-      <button type="submit">제출</button>
+      <button type="button" onclick="location.href='findwrite2.html'">다음</button>
     </div>
   </form>
 </main>
